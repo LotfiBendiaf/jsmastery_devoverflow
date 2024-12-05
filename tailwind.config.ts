@@ -53,8 +53,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        "auth-dark": 'url("/images/TheraCare-bg-dark.png")',
-        "auth-light": 'url("/images/TheraCare-bg-light.png")',
+        "auth-dark": 'url("/images/auth-dark.png")',
+        "auth-light": 'url("/images/auth-light.png")',
       },
     },
   },

@@ -9,7 +9,11 @@ import { toast } from "@/hooks/use-toast";
 
 import { Button } from "../ui/button";
 
-const SocialAuthForm = () => {
+type SocialAuthFormProps = {
+  action: string; // Specify the type of action here
+};
+
+const SocialAuthForm = ({ action }: SocialAuthFormProps) => {
   const buttonClass =
     "background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
 
@@ -43,7 +47,7 @@ const SocialAuthForm = () => {
           height={20}
           className="invert-colors mr-2.5 object-contain"
         />
-        <span>Log in with GitHub</span>
+        <span>{action} with GitHub</span>
       </Button>
 
       <Button className={buttonClass} onClick={() => handleSignIn("google")}>
@@ -54,7 +58,7 @@ const SocialAuthForm = () => {
           height={20}
           className="mr-2.5 object-contain"
         />
-        <span>Log in with Google</span>
+        <span>{action} with Google</span>
       </Button>
     </div>
   );
