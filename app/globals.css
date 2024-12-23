@@ -52,7 +52,7 @@ body {
   }
 
   .background-dark400_light900 {
-    @apply dark:bg-dark-400 bg-light-900 hover:bg-slate-200 !important;
+    @apply dark:bg-dark-400 bg-light-900 !important;
   }
 
   .text-dark100_light900 {
@@ -105,6 +105,10 @@ body {
 
   .text-dark400_light900 {
     @apply text-dark-400 dark:text-light-900 !important;
+  }
+
+  .text-light400_light500 {
+    @apply text-light-400 dark:text-light-500 !important;
   }
 
   .light-border {
@@ -204,7 +208,7 @@ body {
   }
 
   .shadow-light100_dark100 {
-    @apply shadow-light-400 dark:shadow-dark-100;
+    @apply shadow-light-100 dark:shadow-dark-100;
   }
 
   .shadow-light100_darknone {
@@ -233,13 +237,6 @@ body {
 
   .primary-text-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .primary-text-gradient:hover {
-    background: linear-gradient(129deg, #ffc400 0%, #e2995f 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

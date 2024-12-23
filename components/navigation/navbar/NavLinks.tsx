@@ -30,7 +30,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
               isActive
                 ? "primary-gradient text-light-900"
                 : "text-dark300_light900",
-              "flex items-center justify-start gap-4 bg-transparent rounded-lg p-4 hover:background-light700_dark300"
+              "flex items-center justify-start gap-4 bg-transparent rounded-lg px-4 py-2 hover:background-light700_dark300"
             )}
             href={item.route}
             key={item.label}
@@ -44,7 +44,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
             ></Image>
             <p
               className={cn(
-                isActive ? "base-semibold" : "base-medium",
+                isActive ? "base-medium" : "text-xs",
                 !isMobileNav && "max-lg:hidden"
               )}
             >
