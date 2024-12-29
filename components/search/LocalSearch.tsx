@@ -25,6 +25,11 @@ export const LocalSearch = ({
   const query = searchParams.get("query") || "";
   const [searchQuery, setSearchQuery] = useState(query);
 
+  // Sync searchQuery with URL query changes
+  useEffect(() => {
+    setSearchQuery(query);
+  }, [query]);
+
   useEffect(() => {
     let newUrl = "";
     const delayDebounceFn = setTimeout(() => {
@@ -34,19 +39,20 @@ export const LocalSearch = ({
           key: "query",
           value: searchQuery,
         });
-      } else {
-        if (pathname === route) {
-          newUrl = removeKeysFormQuery({
-            params: searchParams.toString(),
-            keysToRemove: ["query"],
-          });
-        }
+      } else if (pathname === route) {
+        newUrl = removeKeysFormQuery({
+          params: searchParams.toString(),
+          keysToRemove: ["query"],
+        });
       }
-      router.push(newUrl, { scroll: false });
+
+      if (newUrl !== window.location.href) {
+        router.push(newUrl, { scroll: false });
+      }
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchQuery, router, route, searchParams, pathname]);
+  }, [searchQuery, router, route, pathname]);
   return (
     <div
       className={`background-light800_darkgradient flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 ${otherClasses}`}

@@ -32,7 +32,7 @@ const HomeFilter = () => {
         params: searchParams.toString(),
         keysToRemove: ["filter"],
       });
-    } else {
+    } else if (filter) {
       setActive(filter);
 
       newUrl = formUrlQuery({
