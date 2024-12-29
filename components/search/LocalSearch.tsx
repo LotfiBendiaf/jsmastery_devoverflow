@@ -26,23 +26,23 @@ export const LocalSearch = ({
   const [searchQuery, setSearchQuery] = useState(query);
 
   useEffect(() => {
+    let newUrl = "";
     const delayDebounceFn = setTimeout(() => {
       if (searchQuery) {
-        const newUrl = formUrlQuery({
+        newUrl = formUrlQuery({
           params: searchParams.toString(),
           key: "query",
           value: searchQuery,
         });
-        router.push(newUrl, { scroll: false });
       } else {
         if (pathname === route) {
-          const newUrl = removeKeysFormQuery({
+          newUrl = removeKeysFormQuery({
             params: searchParams.toString(),
             keysToRemove: ["query"],
           });
-          router.push(newUrl, { scroll: false });
         }
       }
+      router.push(newUrl, { scroll: false });
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
