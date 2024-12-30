@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 import { LocalSearch } from "@/components/search/LocalSearch";
 import HomeFilter from "@/components/filters/HomeFilter";
+import QuestionCard from "@/components/cards/QuestionCard";
 
 const questions = [
   {
@@ -14,22 +15,29 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "JavaScript" },
     ],
-    author: { _id: "1", name: "John Doe" },
-    upvotes: 10,
+    author: {
+      _id: "1",
+      name: "Doris Quinn",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG67uD0aKEhLg9BEZ0ZYsnYmrBS34R7g14hg&s",
+    },
+    upVotes: 10,
     answers: 5,
     views: 100,
-    createdAt: new Date(),
+    createdAt: new Date("2024-12-23"),
   },
   {
     _id: "2",
     title: "How to learn JavaScript?",
     description: "I want to learn JavaScript, can anyone help me?",
-    tags: [
-      { _id: "1", name: "JavaScript" },
-      { _id: "2", name: "JavaScript" },
-    ],
-    author: { _id: "1", name: "John Doe" },
-    upvotes: 10,
+    tags: [{ _id: "1", name: "JavaScript" }],
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image:
+        "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg",
+    },
+    upVotes: 10,
     answers: 5,
     views: 100,
     createdAt: new Date(),
@@ -74,7 +82,7 @@ const Home = async ({ searchParams }: SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
