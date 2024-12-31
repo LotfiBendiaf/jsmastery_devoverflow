@@ -58,6 +58,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  variants: {
+    fill: ["hover", "focus"], // this line does the trick
+  },
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 export default config;
