@@ -11,7 +11,7 @@ interface IUser {
   reputation: number; // Default value will be 0
 }
 
-const UserSchema = new Schema(
+const UserSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },
     username: { type: String, required: true },
