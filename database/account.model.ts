@@ -1,4 +1,4 @@
-import { model, models, Schema, Types } from "mongoose";
+import { Document, model, models, Schema, Types } from "mongoose";
 
 interface IAccount {
   userId: Types.ObjectId; // Reference to the User model
@@ -8,7 +8,7 @@ interface IAccount {
   provider: string; // Optional field
   providerAccountId: string; // Optional field
 }
-
+export interface IAccountDoc extends IAccount, Document {}
 const AccountSchema = new Schema<IAccount>(
   {
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },

@@ -1,4 +1,5 @@
 import { model, models, Schema, Types } from "mongoose";
+import Document from "next/document";
 import { string } from "zod";
 
 interface IVote {
@@ -8,6 +9,7 @@ interface IVote {
   voteType: "upvote" | "downvote";
 }
 
+export interface IVoteDoc extends IVote, Document {}
 const VoteSchema = new Schema<IVote>(
   {
     author: { type: Schema.Types.ObjectId, ref: "User", required: true },

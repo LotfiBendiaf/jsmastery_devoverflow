@@ -1,4 +1,4 @@
-import { model, models, Types, Schema } from "mongoose";
+import { model, models, Types, Schema, Document } from "mongoose";
 
 interface IQuestion {
   author: Types.ObjectId; // ObjectId as a string referencing the User model
@@ -10,6 +10,7 @@ interface IQuestion {
   downVotes: number; // Default value is 0
   views: number; // Default value is 0
 }
+export interface IQuestionDoc extends IQuestion, Document {}
 const QuestionSchema = new Schema<IQuestion>(
   {
     author: { type: Schema.Types.ObjectId, ref: "User", required: true },
