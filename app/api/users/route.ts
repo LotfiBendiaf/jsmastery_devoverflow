@@ -5,11 +5,10 @@ import dbConnect from "@/lib/mongoose";
 import { UserSchema } from "@/lib/validations";
 import { NextResponse } from "next/server";
 
-export async function Get() {
+export async function GET() {
   try {
     await dbConnect();
     const users = await User.find();
-    console.log(users);
     return NextResponse.json({ success: true, data: users }, { status: 200 });
   } catch (error) {
     return handleError(error, "api") as APIErrorResponse;
