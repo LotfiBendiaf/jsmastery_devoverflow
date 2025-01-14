@@ -5,10 +5,10 @@ interface IUser {
   username: string;
   email: string;
   bio?: string; // Optional field
-  image: string;
+  image?: string;
   location?: string; // Optional field
   portfolio?: string; // Optional field
-  reputation: number; // Default value will be 0
+  reputation?: number; // Default value will be 0
 }
 
 export interface IUserDoc extends IUser, Document {}
@@ -18,7 +18,7 @@ const UserSchema = new Schema<IUser>(
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     bio: { type: String },
-    image: { type: String, required: true },
+    image: { type: String },
     location: { type: String },
     portfolio: { type: String },
     reputation: { type: Number, default: 0 },
