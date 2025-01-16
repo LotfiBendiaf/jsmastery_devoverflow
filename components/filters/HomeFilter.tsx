@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { formUrlQuery, removeKeysFormQuery } from "@/lib/url";
+import { formUrlQuery, removeKeysFromUrlQuery } from "@/lib/url";
 import { useRouter } from "next/navigation";
 
 const filters = [
@@ -28,7 +28,7 @@ const HomeFilter = () => {
     if (filter === active) {
       setActive("");
 
-      newUrl = removeKeysFormQuery({
+      newUrl = removeKeysFromUrlQuery({
         params: searchParams.toString(),
         keysToRemove: ["filter"],
       });

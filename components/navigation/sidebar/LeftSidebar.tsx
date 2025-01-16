@@ -32,7 +32,7 @@ const LeftSidebar = () => {
           className="small-medium btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none"
           asChild
         >
-          <Link href={ROUTES.SIGN_IN}>
+          <Link href={ROUTES.SIGN_UP}>
             <Image
               src={"/icons/sign-up.svg"}
               alt="sign up"
