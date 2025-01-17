@@ -9,13 +9,13 @@ import dbConnect from "../mongoose";
 type ActionOptions<T> = {
   params?: T;
   schema?: ZodSchema<T>;
-  autherize?: boolean;
+  authorize?: boolean;
 };
 
 async function action<T>({
   params,
   schema,
-  autherize = false,
+  authorize = false,
 }: ActionOptions<T>) {
   if (schema && params) {
     try {
@@ -32,7 +32,7 @@ async function action<T>({
   }
   let session: Session | null = null;
 
-  if (autherize) {
+  if (authorize) {
     session = await auth();
 
     if (!session) {
