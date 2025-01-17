@@ -12,6 +12,7 @@ interface Author {
 interface Question {
   _id: string; // The unique identifier of the question
   title: string; // The title of the question
+  content: string;
   tags: Tag[]; // Array of tags associated with the question
   author: Author; // Author's name or ID
   createdAt: Date; // Date when the question was created
